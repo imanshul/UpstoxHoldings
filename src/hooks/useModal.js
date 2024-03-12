@@ -97,7 +97,6 @@ const useModal = () => {
         swipeThreshold={50}
         propagateSwipe
         onSwipeComplete={() => {
-          console.log('swipe');
           hideModal(modalId);
         }}
         transparent={true}
