@@ -5,7 +5,7 @@ import Strings from '../../constants/Strings';
 import Utils from '../../constants/Utils';
 import Separator from '../Separator';
 
-const HoldingsDetailModalContent = ({data}) => {
+const StockDetailModalContent = ({data}) => {
   const currentValue = data.ltp * data.quantity;
   const investmentValue = data.avgPrice * data.quantity;
   const dayPL = (data.close - data.ltp) * data.quantity;
@@ -76,4 +76,4 @@ const HoldingsDetailModalContent = ({data}) => {
   );
 };
 
-export default HoldingsDetailModalContent;
+export default StockDetailModalContent;

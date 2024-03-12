@@ -10,7 +10,7 @@ import Header from '../components/Header';
 import Strings from '../constants/Strings';
 import HoldingsBottomSheet from '../components/HoldingsBottomSheet';
 import useModal from '../hooks/useModal';
-import HoldingsDetailModalContent from '../components/modal/HoldingsDetailModalContent';
+import StockDetailModalContent from '../components/modal/StockDetailModalContent';
 
 const Holdings = () => {
   const {holdingsAPIData} = useSelector(state => state.investment);
@@ -61,7 +61,7 @@ const Holdings = () => {
       )}
 
       <ModalWrapper modalId={HoldingModals.StockDetails}>
-        <HoldingsDetailModalContent />
+        <StockDetailModalContent />
       </ModalWrapper>
     </View>
   );
