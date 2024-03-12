@@ -1,5 +1,5 @@
 import Strings from './Strings';
-import {Platform} from 'react-native';
+import {Dimensions, Platform} from 'react-native';
 
 const Utils = {
   isDevBuild() {
@@ -22,6 +22,10 @@ const Utils = {
     let parts = formattedNum.toString().split('.');
     parts[0] = parts[0].replace(/\B(?=(?:(\d\d)+(\d)(?!\d))+(?!\d))/g, ',');
     return symbol + ' ' + parts.join('.');
+  },
+
+  getDeviceHeight() {
+    return Dimensions.get('window').height;
   },
 };
 export default Utils;

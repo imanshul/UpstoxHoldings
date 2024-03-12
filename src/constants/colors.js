@@ -4,5 +4,6 @@ const colors = {
   primaryTextDark: '#333333',
   separator: '#CCCCCC',
   secondaryText: '#fff',
+  background: '#ffffff',
 };
 export default colors;

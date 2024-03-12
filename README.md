@@ -54,7 +54,7 @@ The app uses the following modules:
 - react-native-gesture-handler
 - react-native-reanimated
 - @gorhom/bottom-sheet
-
+- react-native-modal
 
 
 # Steps to run the app

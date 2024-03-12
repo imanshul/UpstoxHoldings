@@ -5,15 +5,22 @@ import {getHoldingsData} from '../redux/apiReduxMiddleware/investmentMiddleware'
 import {resetHoldingsAPIData} from '../redux/slices/investmentSlice';
 import LoadingView from '../components/LoadingView';
 import Utils from '../constants/Utils';
-import HoldingView from '../components/flatListItemViews/HoldingView';
+import StockListView from '../components/flatListItemViews/StockListView';
 import Header from '../components/Header';
 import Strings from '../constants/Strings';
 import HoldingsBottomSheet from '../components/HoldingsBottomSheet';
+import useModal from '../hooks/useModal';
+import HoldingsDetailModalContent from '../components/modal/HoldingsDetailModalContent';
 
 const Holdings = () => {
   const {holdingsAPIData} = useSelector(state => state.investment);
   const {isLoading, payload, error} = holdingsAPIData;
   const dispatch = useDispatch();
+
+  const HoldingModals = {
+    StockDetails: 'StockDetailsView',
+  };
+  const {showModal, hideModal, ModalWrapper} = useModal();
 
   useEffect(() => {
     //Fetch data from API
@@ -32,10 +39,13 @@ const Holdings = () => {
         <FlatList
           data={payload?.userHolding}
           renderItem={({item, index}) => (
-            <HoldingView
+            <StockListView
               item={item}
               index={index}
               lastIndex={payload?.userHolding?.length - 1}
+              onItemClick={item => {
+                showModal(HoldingModals.StockDetails, item);
+              }}
             />
           )}
           contentContainerStyle={{backgroundColor: 'white'}}
@@ -49,6 +59,10 @@ const Holdings = () => {
       {Utils.isArrayAndNotNull(payload?.userHolding) && (
         <HoldingsBottomSheet data={payload?.userHolding} />
       )}
+
+      <ModalWrapper modalId={HoldingModals.StockDetails}>
+        <HoldingsDetailModalContent />
+      </ModalWrapper>
     </View>
   );
 };
