@@ -18,7 +18,8 @@ const HoldingView = props => {
         }}>
         <Row leftText={item.symbol} rightText={`LTP: ${item.ltp}`} />
         <Row
-          leftText={item.quantity}
+          leftText={item?.quantity?.toString()}
+          leftTextStyle={{fontWeight: 'normal'}}
           rightText={`P/L: ${Utils.getFormattedNumber(
             currentValue - investmentValue,
           )}`}
@@ -36,4 +37,5 @@ HoldingView.propTypes = {
   item: PropTypes.any.isRequired,
   index: PropTypes.number.isRequired,
   lastIndex: PropTypes.number.isRequired,
+  onItemClick: PropTypes.func,
 };

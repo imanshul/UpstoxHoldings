@@ -10,7 +10,7 @@ const HoldingsBottomSheet = ({data}) => {
   // Bottom sheet data
   const [snapIndex, setSnapIndex] = useState(0);
   const bottomSheetRef = useRef(null);
-  const snapPoints = ['8%', '25%'];
+  const snapPoints = ['8.5%', '25%'];
   const handleSheetChanges = useCallback(index => {
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     setSnapIndex(index);
